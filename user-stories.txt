@@ -1,0 +1,87 @@
+As a Customer
+in order to select my dinner options
+I must be able to view restaurant menus.
+
+As a Customer
+in order to have a complete meal
+I need to be able to pick between dish categories (such as Starters).
+
+As a Customer
+in order to check out
+I need to be able to pay for my order.
+
+As a Customer
+in order to place an order
+I need to be able to add dishes to my cart.
+
+As a Customer
+in order to see restaurants in my area
+I need to see a map and list with local restaurants.
+
+As a Customer
+in order to pre-judge my dinner selection
+I should see average restaurant ratings in the index list.
+
+As a Customer
+in order to build a whole meal
+I need to be able to order different dishes from different restaurants.
+
+As a Customer
+in order to give my opinion
+I need to be able to rate and comment on restaurants.
+
+As a Customer
+in order to be picky as hell
+I need to be able to deselect an ingredient on certain dishes.
+
+As a (restaurant) Owner
+in order to sell food
+I need to be able to build my Restaurant page.
+
+As a restaurant Owner
+in order to market my food
+I need to show popular/selected Dishes on my Restaurant page, with "order" option.
+
+As a restaurant Owner
+in order to show more menu details
+I need to have a Menu page for each Menu.
+
+As a restaurant Owner
+in order to show more details about a dish
+I need to have a Dish "page" that shows full dish information.
+
+As a restaurant Owner
+in order to sell food
+I need to be able to add one or more menus.
+
+As a restaurant Owner
+in order to set up my menu
+I need to be able to add Dishes to my menu(s).
+
+As a restaurant Owner
+in order to provide information to customers
+I need to add descriptions to Dishes.
+
+As a restaurant Owner
+in order to clarify my menu
+I need to be able to categorize my dishes (e.g. Starters).
+
+As a restaurant Owner
+in order to be found
+I need to be able to enter an address that is placed on a map.
+
+As a restaurant Owner
+in order to categorize my food
+I need to be able to select a Restaurant category (i.e. Thai).
+
+As an Administrator (delivery service)
+in order to coordinate delivery
+I need to be able to group restaurants by radius.
+
+As an Administrator
+in order to deal with transportation costs
+I need to be able to assess delivery fees based on location.
+
+As an Administrator
+in order to control the site
+I need to be able to create, read, update and delete all information / objects.

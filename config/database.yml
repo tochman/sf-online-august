@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: slow_food_development
+
+test: &test
+  <<: *default
+  database: slow_food_test
+
+production:
+  <<: *default
+  database: slow_food_production
+  username: slow_food
+  password: <%= ENV['SLOW_FOOD_DATABASE_PASSWORD'] %>
+
+cucumber:
+  <<: *test

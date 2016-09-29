@@ -31,6 +31,14 @@ When(/^I click the link "([^"]*)"$/) do |link|
   click_link(link)
 end
 
+Then(/^I should see "([^"]*)" button$/) do |button|
+  expect(page).to have_button button
+end
+
+When(/^I fill in "([^"]*)" with "([^"]*)"$/) do |element, text|
+  fill_in element, with: text
+end
+
 private
 
 def goto(page)
@@ -38,7 +46,9 @@ def goto(page)
   when 'restaurant'
     restaurant_path
   when 'menu'
-    menu_path
+    menu_index_path
+  when 'add menu'
+    new_menu_path
   when 'Create Dish'
     new_dish_path
   else

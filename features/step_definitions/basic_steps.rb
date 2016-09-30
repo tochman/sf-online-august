@@ -39,6 +39,17 @@ When(/^I fill in "([^"]*)" with "([^"]*)"$/) do |element, text|
   fill_in element, with: text
 end
 
+Given(/^I am on the "([^"]*)" page for "([^"]*)"$/) do |page, dish|
+  dish_id = Dish.find_by(dish_name: dish)
+  visit dish_path(dish_id)
+end
+
+Then(/^I should be on the "([^"]*)" page for "([^"]*)"$/) do |page, dish|
+  dish_id = Dish.find_by(dish_name: dish)
+  expect(current_path).to eq dish_path(dish_id)
+end
+
+
 private
 
 def goto(page)
@@ -51,6 +62,8 @@ def goto(page)
     new_menu_path
   when 'Create Dish'
     new_dish_path
+  when 'cart'
+    carts_path
   when 'register'
     new_user_registration_path
   when 'user registration'

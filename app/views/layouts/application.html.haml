@@ -8,6 +8,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     .container
+      = link_to 'Show cart', carts_path
       - flash.each do |key, value|
         %div{class: "#{flash_class(key)}"}
           %a.close{"aria-label" => "close", "data-dismiss" => "alert", :href => "#"} ×

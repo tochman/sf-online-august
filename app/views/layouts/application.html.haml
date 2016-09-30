@@ -8,4 +8,9 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     .container
+      - flash.each do |key, value|
+        %div{class: "#{flash_class(key)}"}
+          %a.close{"aria-label" => "close", "data-dismiss" => "alert", :href => "#"} ×
+          %strong
+            = value
       = yield

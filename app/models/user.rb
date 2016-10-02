@@ -18,4 +18,8 @@ class User < ApplicationRecord
   def owner?
     self.role == 'owner'
   end
+
+  def customer?
+    self.role == 'customer'
+  end
 end

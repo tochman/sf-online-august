@@ -47,3 +47,9 @@ Given(/^I register as a user with address "([^"]*)"$/) do |address|
     When I click the "Register" button
   }
 end
+
+
+Given(/^I am logged in as a restaurant owner$/) do
+  user = FactoryGirl.create(:user, role: 'owner')
+  login_as(user, scope: :user)
+end

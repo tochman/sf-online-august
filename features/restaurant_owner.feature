@@ -6,6 +6,7 @@ Feature: As a restaurant Owner
     Given there are "0" restaurant owners in the system
     And I am on the "home" page
     And I click the link "Register your restaurant account"
+    Then I should see "Sign up as Owner"
     When I fill in:
       | element               | content                                         |
       | Name                  | Ahmad                                           |

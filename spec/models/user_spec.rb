@@ -18,7 +18,7 @@ RSpec.describe User, type: :model do
 
   describe 'Factory' do
     it 'should have valid Factory' do
-      expect(FactoryGirl.create(:user)).to be_valid
+      expect(create(:user)).to be_valid
     end
   end
 
@@ -50,8 +50,8 @@ RSpec.describe User, type: :model do
   end
 
   describe 'scopes' do
-    let(:customer) {create(:user, role: 'customer')}
-    let(:owner){create(:user, email: 'whatever@random_restaurant.com', role: 'owner')}
+    let(:customer) { create(:user, role: 'customer') }
+    let(:owner) { create(:user, email: 'whatever@random_restaurant.com', role: 'owner') }
 
     it '#customers' do
       expect(User.customers).to include customer

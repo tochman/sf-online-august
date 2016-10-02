@@ -4,7 +4,8 @@ Feature: As a restaurant Owner
 
   Scenario: I register as a Restaurant Owner
     Given there are "0" restaurant owners in the system
-    And I am on the "register" page
+    And I am on the "home" page
+    And I click the link "Register your restaurant account"
     When I fill in:
       | element               | content                                         |
       | Name                  | Ahmad                                           |

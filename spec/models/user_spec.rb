@@ -21,4 +21,20 @@ RSpec.describe User, type: :model do
       expect(FactoryGirl.create(:user)).to be_valid
     end
   end
+
+  describe 'scopes' do
+    let(:customer) {create(:user, role: 'customer')}
+    let(:owner){create(:user, email: 'whatever@random_restaurant.com', role: 'owner')}
+
+    it '#customers' do
+      expect(User.customers).to include customer
+      expect(User.customers).not_to include owner
+    end
+
+    it '#owners' do
+      expect(User.owners).to include owner
+      expect(User.owners).not_to include customer
+    end
+
+  end
 end

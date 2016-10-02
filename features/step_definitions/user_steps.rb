@@ -1,5 +1,9 @@
 Then(/^there (?:should be|are) "([^"]*)" (?:user|users) in the system$/) do |count|
-  expect(User.count).to eq count.to_i
+  expect(User.customers.count).to eq count.to_i
+end
+
+Then(/^there (?:should be|are) "([^"]*)" restaurant (?:owner|owners) in the system$/) do |count|
+  expect(User.owners.count).to eq count.to_i
 end
 
 

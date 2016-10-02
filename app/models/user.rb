@@ -5,4 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   validates_presence_of :name, :address, :role
+
+  scope :customers, -> { where(role: 'customer') }
+  scope :owners, -> { where(role: 'owner') }
 end

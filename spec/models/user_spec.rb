@@ -22,6 +22,33 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe '#role' do
+    it 'is a customer by default' do
+      expect(subject.role).to eq 'customer'
+    end
+
+
+    it 'can set the role to restaurant owner' do
+      owner = create(:user, role: 'owner')
+      expect(owner).to be_valid
+    end
+
+    it 'returns true on #owner? if role == \'owner\'' do
+      rest_owner = create(:user, role: 'owner')
+      expect(rest_owner.owner?).to eq true
+    end
+
+    it 'returns false on #rest_owner? if role != \'owner\'' do
+      not_rest_owner = create(:user, role: 'customer')
+      expect(not_rest_owner.owner?).to eq false
+    end
+
+    it 'cannot set the role to \'whatever\'' do
+      expect { create(:user, role: 'whatever') }
+          .to raise_error(ActiveRecord::RecordInvalid, 'Validation failed: Role whatever is not permitted')
+    end
+  end
+
   describe 'scopes' do
     let(:customer) {create(:user, role: 'customer')}
     let(:owner){create(:user, email: 'whatever@random_restaurant.com', role: 'owner')}

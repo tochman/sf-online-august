@@ -1,4 +1,4 @@
-Given(/^the following dish exist$/) do |table|
+Given(/^the following (?:dish|dishes) exist$/) do |table|
   table.hashes.each do |hash|
     FactoryGirl.create(:dish, hash)
   end

@@ -1,2 +1,8 @@
-Here's the menu page for
-= @menu.title
+%h1 Here's the menu page for #{@menu.title}
+%br/
+- if !@menu.dishes.nil?
+  Dishes:
+  %br/
+  - @menu.dishes.each do |dish|
+    = link_to dish.dish_name, dish
+    %br/

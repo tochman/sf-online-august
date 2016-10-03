@@ -1,6 +1,8 @@
 .row
   .column-md-12
-    %h1 Cart for X
+    %h1
+      Cart for
+      = current_user.name
     %p selected dishes
     - if @cart.shopping_cart_items.count == 0
       You have no dishes in your cart.

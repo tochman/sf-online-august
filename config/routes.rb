@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  #get '/restaurant', controller: :restaurants, action: :index
   resources :carts, only: [:index]
   post '/checkout', controller: :carts, action: :checkout
 

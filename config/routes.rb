@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
-  get '/restaurant', controller: :restaurants, action: :index
   resources :carts, only: [:index]
   post '/checkout', controller: :carts, action: :checkout
 
+  resources :restaurants, only: [:index, :new, :create]
   resources :dishes, only: [:new, :show, :create] do
     post 'add_item', controller: :carts, action: :add_item
   end

@@ -1,6 +1,8 @@
 class MenusController < ApplicationController
   before_action :find_menu_from_params, only: [:show, :edit, :update]
 
+  load_and_authorize_resource
+
   def index
   end
 
@@ -14,7 +16,7 @@ class MenusController < ApplicationController
   def create
     @menu = Menu.new(menu_params)
     if @menu.save
-      flash[:notice] = "Successfully added menu"
+      flash[:notice] = 'Successfully added menu'
       render :show
     else
       flash[:alert] = @menu.errors.full_messages.first

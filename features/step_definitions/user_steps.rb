@@ -1,5 +1,9 @@
 Then(/^there (?:should be|are) "([^"]*)" (?:user|users) in the system$/) do |count|
-  expect(User.count).to eq count.to_i
+  expect(User.customers.count).to eq count.to_i
+end
+
+Then(/^there (?:should be|are) "([^"]*)" restaurant (?:owner|owners) in the system$/) do |count|
+  expect(User.owners.count).to eq count.to_i
 end
 
 
@@ -42,4 +46,14 @@ Given(/^I register as a user with address "([^"]*)"$/) do |address|
       | Password confirmation      | password         |
     When I click the "Register" button
   }
+end
+
+
+Given(/^I am logged in as a restaurant owner$/) do
+  user = FactoryGirl.create(:user, role: 'owner')
+  login_as(user, scope: :user)
+end
+
+Given(/^I am not logged in$/) do
+  logout
 end

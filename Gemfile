@@ -9,14 +9,15 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
-gem "haml-rails", "~> 0.9"
+gem 'haml-rails', '~> 0.9'
 gem 'acts_as_shopping_cart', '~> 0.4.1'
 gem 'devise'
+gem 'cancancan', '~> 1.10'
 
 
 group :development, :test do
   gem 'listen', '~> 3.0.5'
-  gem "erb2haml"
+  gem 'erb2haml'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'

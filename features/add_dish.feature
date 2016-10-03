@@ -3,7 +3,8 @@ Feature: As a restaurant Owner
   I need to be able to add one or more dishes to my menus.
 
 Background:
-  Given the following menus exist:
+  Given I am logged in as a restaurant owner
+  And the following menus exist:
     | title   |
     | Lunch  |
     | Dinner |

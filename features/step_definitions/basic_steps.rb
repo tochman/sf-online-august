@@ -65,7 +65,7 @@ def goto(page)
   when 'index'
     root_path
   when 'restaurant'
-    restaurant_path
+    restaurants_path
   when 'menu'
     menus_path
   when 'add menu'

@@ -10,6 +10,6 @@ Scenario: Viewing the restaurant page
     | Restaurant Name     |
     | Restaurant info     |
     | Map                 |
-    | Link to menus       |
+    | popular restaurants |
     | Highlighted dishes  |
     | Comment and rate    |

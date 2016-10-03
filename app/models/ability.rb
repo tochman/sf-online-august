@@ -6,10 +6,12 @@ class Ability
     if user.owner?
       can :manage, Menu
       can :manage, Dish
+      can :manage, Restaurant
       can :read, :all
     elsif user.customer?
       cannot :manage, Menu
       cannot :manage, Dish
+      cannot :manage, Restaurant
       can :manage, ShoppingCart
       can :read, :all
     end

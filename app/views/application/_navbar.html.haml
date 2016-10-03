@@ -11,16 +11,25 @@
       %ul.nav.navbar-nav
         %li
           = link_to 'Home', root_path
+          - if current_user.try(:customer?)
+            %li
+              = link_to 'Edit profile', edit_user_registration_path
+          - if current_user.try(:owner?)
+            %li
+              = link_to 'Create restaurant', new_restaurant_path
+            %li
+              = link_to 'Create menu', new_menu_path
+            %li
+              = link_to 'Create dish', new_dish_path
         %li
-          = link_to 'Create dish', new_dish_path
-        %li
-          = link_to 'Show cart', carts_path
+          - unless current_user.try(:owner?)
+            = link_to 'Show cart', carts_path
       %ul.nav.navbar-nav.navbar-right
         - if current_user
           %p.navbar-text.navbar-right
             Signed in as
             = current_user.name
-        -  else
+        - else
           %li
             = link_to 'Log in', new_user_session_path
           %li

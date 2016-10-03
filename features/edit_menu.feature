@@ -3,11 +3,13 @@ Feature: As a restaurant Owner
   I need to be able to add one or more dishes to my menus.
 
 Background:
-  Given the following dishes exist
+  Given I am logged in as a restaurant owner
+  And the following dishes exist
     | dish_name | dish_desc       | dish_price |
     | Pizza     | Delicious pizza | 7000       |
     | Salad     | Leafy           | 1500       |
     | Olives    | Salty           | 900        |
+
   And the following menus exist:
     | title |
     | Lunch |

@@ -12,7 +12,7 @@
   find restaurants of your choice using our app locating nearby
   restaurants on a map for you.
 
-  You can take a look at it's current state right [**here**](https://http://slow-food-august.herokuapp.com/.com/)
+  You can take a look at it's current state right [**here**](http://slow-food-august.herokuapp.com/)
 
 
 # Installation

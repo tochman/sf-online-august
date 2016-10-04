@@ -18,3 +18,6 @@ coverage/
 
 #Ignore Ruby Mine files
 .idea
+
+#vendor files
+vendor/bundle/

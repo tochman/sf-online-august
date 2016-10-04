@@ -21,3 +21,5 @@ deploy:
     master: best-slow-food
   on:
     repo: CraftAcademy/sf-online-august
+  run:
+    - "rails db:migrate"

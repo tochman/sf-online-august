@@ -11,3 +11,11 @@ When(/^visit the "([^"]*)" menu page$/) do |menu_name|
   menu = Menu.find_by(title: menu_name)
   visit menu_path(menu)
 end
+
+Given(/^"([^"]*)" has the following dishes:$/) do |name, table|
+  owner = User.owners.find_by(name: name)
+  table.hashes.each do |menu|
+    FactoryGirl.create(:dish, dish_name: dish[:name], restaurant: owner.restaurant)
+  end
+
+end

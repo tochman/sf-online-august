@@ -53,6 +53,7 @@ Then(/^I should be on the "([^"]*)" page for "([^"]*)"$/) do |page, dish|
   expect(current_path).to eq dish_path(dish_id)
 end
 
+
 Then(/^show me the page$/) do
   save_and_open_page
 end
@@ -64,6 +65,8 @@ def goto(page)
   case page
   when 'index'
     root_path
+  when 'login'
+    new_user_session_path
   when 'restaurant'
     restaurants_path
   when 'menu'
@@ -83,4 +86,10 @@ def goto(page)
   else
     root_path
   end
+end
+
+
+Then(/^show me an image of the page$/) do
+  sleep(0.1) until page.evaluate_script('$.active') == 0
+  Capybara::Screenshot.screenshot_and_open_image
 end

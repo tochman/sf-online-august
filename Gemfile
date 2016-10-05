@@ -16,6 +16,7 @@ gem 'cancancan', '~> 1.10'
 gem 'geocoder'
 gem 'gmapsjs'
 gem 'gon'
+gem 'stripe'
 
 
 group :development, :test do

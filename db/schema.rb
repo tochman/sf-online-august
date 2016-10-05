@@ -15,16 +15,6 @@ ActiveRecord::Schema.define(version: 20161004151838) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "add_menies", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "add_menus", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "dishes", force: :cascade do |t|
     t.string   "dish_name"
     t.text     "dish_desc"
@@ -49,11 +39,6 @@ ActiveRecord::Schema.define(version: 20161004151838) do
     t.datetime "updated_at",                 null: false
     t.integer  "restaurant_id"
     t.index ["restaurant_id"], name: "index_menus_on_restaurant_id", using: :btree
-  end
-
-  create_table "orders", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "restaurants", force: :cascade do |t|

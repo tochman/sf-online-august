@@ -1,6 +1,7 @@
 Given(/^the following (?:dish|dishes) exist$/) do |table|
+  restaurant = Restaurant.first
   table.hashes.each do |hash|
-    FactoryGirl.create(:dish, hash)
+    FactoryGirl.create(:dish, hash.merge({restaurant: restaurant}))
   end
 end
 

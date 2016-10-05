@@ -2,6 +2,12 @@ Feature: As a Customer
   in order to place an order
   I need to be able to add dishes to my cart.
 
+Background:
+  Given the following owners exist:
+    | name |
+    | Anna |
+  And "Anna" has a restaurant
+
 Scenario: Adding dish to cart
   Given the following dish exist
   | dish_name | dish_desc       | dish_price |

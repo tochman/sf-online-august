@@ -12,5 +12,7 @@ Rails.application.routes.draw do
 
   resources :menus, only: [:index, :create, :new, :show, :edit, :update]
 
+  resources :charges, only: [:new, :create]
+
   root to: 'restaurants#index'
 end

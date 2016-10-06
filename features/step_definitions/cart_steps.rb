@@ -6,15 +6,15 @@ Given(/^the following (?:dish|dishes) exist$/) do |table|
 end
 
 Given(/^there is one dish in my cart$/) do
-  steps %Q{Given the following dish exist
+  steps %q{Given the following dish exist
     | dish_name | dish_desc       | dish_price |
-    | Pizza     | Delicious pizza | 7000       |
+    | Pizza     | Delicious pizza | 70         |
     And I am on the dish page for "Pizza"
     Then I click the link "Add to cart"}
 end
 
 Given(/^there are two dishes in my cart$/) do
-  steps %Q{Given the following dish exist
+  steps %q{Given the following dish exist
     | dish_name | dish_desc       | dish_price |
     | Pizza     | Delicious pizza | 7000       |
     | Salad     | Leaves & stuff  | 1500       |
@@ -51,7 +51,7 @@ And(/^I fill in appropriate card details$/) do
     fill_in 'Card number', with: '4242 4242 4242 4242'
     fill_in 'CVC', with: '123'
     fill_in 'cc-exp', with: '12/2019'
-    click_button "Pay #{cart.total}"
+    click_button "Pay kr#{sprintf('%.2f', cart.total.to_i)}"
   end
 end
 

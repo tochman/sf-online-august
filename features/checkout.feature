@@ -16,4 +16,4 @@ Feature: As a restaurant owner
     When I click the "Pay with Card" stripe button
     And I fill in appropriate card details
     And I submit the stripe form
-    And I wait for Stripe to respond
+    Then I should see "Your food is on its way!"

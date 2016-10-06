@@ -26,7 +26,7 @@ class CartsController < ApplicationController
     cart.user_id = current_user.id
     cart.save
     charge = StripePayment.perform_payment(params, cart)
-    @order = ShoppingCart.find(current_user.id)
+    @order = ShoppingCart.find_by(user_id: current_user.id)
     #some method about taking Stripe info and making a confirmed order out of it
     flash[:notice] = 'Your food is on its way!'
     render :checkout

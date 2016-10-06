@@ -60,7 +60,7 @@ And(/^I submit the stripe form$/) do
     click_button "Pay kr#{sprintf('%.2f', cart.total.to_i)}"
     #find('button').trigger('click')
   end
-  sleep(3)
+  sleep(1)
 end
 
 When(/^I click the "([^"]*)" stripe button$/) do |arg|

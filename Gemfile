@@ -35,6 +35,7 @@ group :development, :test do
   gem 'poltergeist'
   gem 'capybara-screenshot'
   gem 'dotenv-rails'
+  gem 'stripe-ruby-mock', '~> 2.3.1', require: 'stripe_mock'
 end
 
 group :development do

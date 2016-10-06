@@ -12,11 +12,10 @@ class CartsController < ApplicationController
     redirect_back(fallback_location: restaurants_path)
   end
 
-  def checkout
-    @order = ShoppingCart.find(params[:format])
-    charge = StripePayment.perform_payment(current_user)
-    binding.pry
-    session.delete(:cart_id)
+  def checkout(charge)
+    # @order = ShoppingCart.find(params[:format])
+    # charge = StripePayment.perform_payment(current_user)
+    # session.delete(:cart_id)
     flash[:notice] = 'Your food is on its way!'
     # In a later feature this needs to create some action item to actually make the order happen.
     # Restrict this function to a Customer
@@ -25,8 +24,10 @@ class CartsController < ApplicationController
   def create
     cart = ShoppingCart.find(params[:cart_id])
     charge = StripePayment.perform_payment(params, cart)
-
     binding.pry
+    @order = ShoppingCart.find(params[:format])
+    #some method about taking Stripe info and making a confirmed order out of it
+    render :checkout
   end
 
   private

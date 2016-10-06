@@ -16,7 +16,8 @@ gem 'cancancan', '~> 1.10'
 gem 'geocoder'
 gem 'gmapsjs'
 gem 'gon'
-gem 'stripe'
+gem 'stripe-rails'
+
 
 
 group :development, :test do
@@ -33,6 +34,7 @@ group :development, :test do
   gem 'launchy'
   gem 'poltergeist'
   gem 'capybara-screenshot'
+  gem 'dotenv-rails'
 end
 
 group :development do

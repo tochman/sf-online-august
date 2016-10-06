@@ -19,3 +19,4 @@
         = link_to 'Pay Now', checkout_path(@cart), method: :post
       - else
         = link_to 'Log in to pay', new_user_registration_path
+= stripe_javascript_tag

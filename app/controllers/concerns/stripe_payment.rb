@@ -13,6 +13,13 @@ module StripePayment
         description:   'Best Slow Food order',
         currency:      'sek'
     )
+
+    # rescue Stripe::CardError => e
+    #  flash[:error] = e.message
+    #  redirect_to charges_path
+    #  flash[:notice] = "Please try again"
+    # end
+
     charge
   end
 end

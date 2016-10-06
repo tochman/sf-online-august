@@ -22,6 +22,7 @@ class CartsController < ApplicationController
       cart.paid = true
       cart.stripe_customer = charge.id
       cart.save
+      session.delete(:cart_id)
       flash[:notice] = 'Your food is on its way!'
       render :checkout
     end

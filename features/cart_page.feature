@@ -6,6 +6,7 @@ Scenario: Adding dish to cart
   Given the following dish exist
   | dish_name | dish_desc       | dish_price |
   | Pizza     | Delicious pizza | 7000       |
+  And I am logged in as a user
   And I am on the "dish" page for "Pizza"
   When I click the link "Add to cart"
   Then I should see "Delicious pizza"

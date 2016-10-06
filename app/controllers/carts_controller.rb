@@ -14,7 +14,7 @@ class CartsController < ApplicationController
 
   def checkout
     @order = ShoppingCart.find(params[:format])
-    StripePayment.perform_payment
+    StripePayment.perform_payment(current_user)
     session.delete(:cart_id)
     flash[:notice] = 'Your food is on its way!'
     # In a later feature this needs to create some action item to actually make the order happen.

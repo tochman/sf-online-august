@@ -1,4 +1,5 @@
 class CartsController < ApplicationController
+  include StripePayment
   before_action :find_or_create_cart, only: [:index, :add_item]
 
   def index
@@ -13,6 +14,7 @@ class CartsController < ApplicationController
 
   def checkout
     @order = ShoppingCart.find(params[:format])
+    StripePayment.perform_payment
     session.delete(:cart_id)
     flash[:notice] = 'Your food is on its way!'
     # In a later feature this needs to create some action item to actually make the order happen.

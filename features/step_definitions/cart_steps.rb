@@ -39,3 +39,9 @@ Given(/^I check out$/) do
     Then I should see "Pizza"
   }
 end
+
+
+And(/^I have dishes in my order$/) do
+  binding.pry
+  @user.shopping_carts.create
+end

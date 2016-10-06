@@ -1,5 +1,4 @@
 class CartsController < ApplicationController
-  #include StripePayment
   before_action :find_or_create_cart, only: [:index, :add_item]
 
   def index
@@ -26,11 +25,6 @@ class CartsController < ApplicationController
       flash[:notice] = 'Your food is on its way!'
       render :checkout
     end
-    # Step one: set paid to 'true'
-    # Step two: Add stripe customer ID to stripe_customer on cart
-    # Step three: destroy session
-    #some method about taking Stripe info and making a confirmed order out of it
-
   end
 
   private

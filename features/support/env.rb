@@ -31,7 +31,7 @@ Geocoder::Lookup::Test.set_default_stub(
 )
 
 Capybara.register_driver :poltergeist do |app|
-  Capybara::Poltergeist::Driver.new(app, js_errors: false)
+  Capybara::Poltergeist::Driver.new(app, js_errors: false, phantomjs_options: ['--ssl-protocol=tlsv1.2'])
 end
 
 Capybara.javascript_driver = :poltergeist

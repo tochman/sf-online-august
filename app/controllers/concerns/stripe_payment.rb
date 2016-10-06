@@ -14,11 +14,10 @@ module StripePayment
         currency:      'sek'
     )
 
-    # rescue Stripe::CardError => e
-    #  flash[:error] = e.message
-    #  redirect_to charges_path
-    #  flash[:notice] = "Please try again"
-    # end
+    rescue Stripe::CardError => e
+     flash[:error] = e.message
+     redirect_to charges_path
+     flash[:alert] = "Please try again"
 
     charge
   end

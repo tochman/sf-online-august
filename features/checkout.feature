@@ -17,3 +17,4 @@ Feature: As a restaurant owner
     And I fill in appropriate card details
     And I submit the stripe form
     Then I should see "Your food is on its way!"
+    And my order should be registered in the system

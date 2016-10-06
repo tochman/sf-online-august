@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   resources :carts, only: [:index]
+  post '/charges', controller: :carts, action: :create
+
   post '/checkout', controller: :carts, action: :checkout
 
   resources :restaurants, only: [:index, :new, :create, :show, :edit, :update]

@@ -43,18 +43,30 @@ end
 
 
 And(/^I fill in appropriate card details$/) do
-  cart = ShoppingCart.last
   sleep(0.1) until page.evaluate_script('$.active') == 0
   stripe_iframe = all('iframe[name=stripe_checkout_app]').last
   Capybara.within_frame stripe_iframe do
     fill_in 'Email', with: 'random@morerandom.com'
     fill_in 'Card number', with: '4242 4242 4242 4242'
     fill_in 'CVC', with: '123'
-    fill_in 'cc-exp', with: '12/2019'
-    click_button "Pay kr#{sprintf('%.2f', cart.total.to_i)}"
+    fill_in 'cc-exp', with: '12/2021'
   end
+end
+
+And(/^I submit the stripe form$/) do
+  cart = ShoppingCart.last
+  stripe_iframe = all('iframe[name=stripe_checkout_app]').last
+  Capybara.within_frame stripe_iframe do
+    click_button "Pay kr#{sprintf('%.2f', cart.total.to_i)}"
+    #find('button').trigger('click')
+  end
+  sleep(3)
 end
 
 When(/^I click the "([^"]*)" stripe button$/) do |arg|
   find('.stripe-button-el').trigger('click')
+end
+
+And(/^I wait for Stripe to respond$/) do
+  loop until all(:xpath, '//input[contains(@name, "stripeToken")]').length == 1
 end

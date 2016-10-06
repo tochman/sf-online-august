@@ -15,3 +15,5 @@ Feature: As a restaurant owner
     Given I am on the "cart" page
     When I click the "Pay with Card" stripe button
     And I fill in appropriate card details
+    And I submit the stripe form
+    And I wait for Stripe to respond

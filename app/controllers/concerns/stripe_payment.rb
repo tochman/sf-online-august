@@ -1,19 +1,18 @@
 module StripePayment
   extend ActiveSupport::Concern
 
-  def self.perform_payment(customer)
-    #binding.pry
-    # @amount = 500 # Grab this from the ShoppingCart when they click the "Pay Now" button
-    #
-    # customer = Stripe::Customer.create(
-    #     email: customer.email,
-    #     source:
-    # )
-    # charge = Stripe::Charge.create(
-    #    # customer:      customer.id,
-    #     amount:        @amount,
-    #     description:   'Best Slow Food order',
-    #     currency:      'sek'
-    # )
+  def self.perform_payment(params, cart)
+    customer = Stripe::Customer.create(
+        email: params[:stripeEmail],
+        source: params[:stripeToken]
+    )
+
+    charge = Stripe::Charge.create(
+        customer:      customer.id,
+        amount:        (cart.total * 100).to_i,
+        description:   'Best Slow Food order',
+        currency:      'sek'
+    )
+    charge
   end
 end

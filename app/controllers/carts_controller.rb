@@ -18,11 +18,18 @@ class CartsController < ApplicationController
     cart.save
     charge = StripePayment.perform_payment(params, cart)
     @order = ShoppingCart.find_by(user_id: current_user.id)
+    unless charge.nil?
+      cart.paid = true
+      cart.stripe_customer = charge.id
+      cart.save
+      flash[:notice] = 'Your food is on its way!'
+      render :checkout
+    end
     # Step one: set paid to 'true'
     # Step two: Add stripe customer ID to stripe_customer on cart
+    # Step three: destroy session
     #some method about taking Stripe info and making a confirmed order out of it
-    flash[:notice] = 'Your food is on its way!'
-    render :checkout
+
   end
 
   private

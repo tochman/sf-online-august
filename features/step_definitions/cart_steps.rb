@@ -58,7 +58,6 @@ And(/^I submit the stripe form$/) do
   stripe_iframe = all('iframe[name=stripe_checkout_app]').last
   Capybara.within_frame stripe_iframe do
     click_button "Pay kr#{sprintf('%.2f', cart.total.to_i)}"
-    #find('button').trigger('click')
   end
   sleep(1)
 end
@@ -69,4 +68,9 @@ end
 
 And(/^I wait for Stripe to respond$/) do
   loop until all(:xpath, '//input[contains(@name, "stripeToken")]').length == 1
+end
+
+Then(/^my order should be registered in the system$/) do
+  cart = ShoppingCart.last
+  expect(cart.stripe_customer).not_to eq nil
 end

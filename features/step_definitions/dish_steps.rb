@@ -19,6 +19,14 @@ Given(/^I am on the dish page for "([^"]*)"$/) do |dish|
   dish_id = Dish.find_by(dish_name: dish)
   visit dish_path(dish_id)
 end
+
+Given(/^"([^"]*)" has the following dishes:$/) do |name, table|
+  owner = User.owners.find_by(name: name)
+  table.hashes.each do |menu|
+    FactoryGirl.create(:dish, dish_name: dish[:name], restaurant: owner.restaurant)
+  end
+end
+
 Given(/^I am on the edit dish page for "([^"]*)"$/) do |dish|
   dish_id = Dish.find_by(dish_name: dish)
   visit edit_dish_path(dish_id)

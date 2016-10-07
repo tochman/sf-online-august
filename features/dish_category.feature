@@ -19,7 +19,6 @@ Feature: As a restaurant owner
       | Price            | 70                   |
     And I click the "Submit" button
     Then I should be on the "dishes" page
-    And show me the page
     And I should see "Starters"
 
 

@@ -3,7 +3,7 @@ Hey, you're checking out.
 You ordered:
 %br
   - @order.shopping_cart_items.each do |dish|
-    = dish.item.dish_name
+    = dish.item.name
 Total price:
 = @order.total.to_i
 %p

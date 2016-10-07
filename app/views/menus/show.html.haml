@@ -5,6 +5,11 @@
 - if !@menu.dishes.nil?
   Dishes:
   %br/
-  - @menu.dishes.each do |dish|
-    = link_to dish.dish_name, dish
-    %br/
+  -#- @menu.dishes.each do |dish|
+  -#  = link_to dish.dish_name, dish
+  -#  %br/
+  - @dishes.keys.each do |category|
+    %div{id: category.downcase}
+      %h1= category
+      - @dishes[category].each do |dish|
+        %p= dish.dish_name

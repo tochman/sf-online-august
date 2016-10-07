@@ -13,6 +13,7 @@ class MenusController < ApplicationController
   end
 
   def show
+    @dishes = @menu.dishes.group_by(&:category)
   end
 
   def create

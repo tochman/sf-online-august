@@ -46,3 +46,13 @@ Then(/^I should be on the edit dish page for "([^"]*)"$/) do |name|
   dish = Dish.find_by(dish_name: name)
   expect(current_path).to eq edit_dish_path(dish)
 end
+
+Given(/^there is a dish named "([^"]*)" with category "([^"]*)" for menu "([^"]*)"$/) do |dish, category, menu|
+  menu = Menu.find_by(title: menu)
+  dish = FactoryGirl.create(:dish,
+                     dish_name: dish,
+                     category: category,
+                     restaurant: menu.restaurant)
+  dish.menus.push menu
+  dish.save
+end

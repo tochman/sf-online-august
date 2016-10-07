@@ -51,3 +51,10 @@ When(/^visit the "([^"]*)" menu page$/) do |menu_name|
   menu = Menu.find_by(title: menu_name)
   visit menu_path(menu)
 end
+
+
+Then(/^I should see "([^"]*)" within "([^"]*)"$/) do |dish_name, category|
+  within("##{category.downcase}") do
+    expect(page).to have_content dish_name
+  end
+end

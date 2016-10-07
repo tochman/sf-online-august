@@ -22,4 +22,3 @@ Feature: As a restaurant owner
     And I should see "Starters"
 
 
-

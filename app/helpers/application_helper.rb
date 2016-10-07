@@ -25,10 +25,14 @@ module ApplicationHelper
         'Edit menu'
       when menu_path
         @menu.title
-      when new_user_path
+      when new_user_registration_path
+        binding.pry
         #This will be a real problem
         'Sign up as Customer'
+      when user_registration_path
+        binding.pry
       else
+        binding.pry
         'Default headline'
     end
   end

@@ -5,6 +5,7 @@ Feature: As a visitor
 Scenario: I register as a Customer
   Given there are "0" users in the system
   And I am on the "register" page
+  Then show me the page
   Then I should see "Sign up as Customer"
   When I fill in:
     | element                    | content          |

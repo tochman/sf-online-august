@@ -13,6 +13,12 @@ module ApplicationHelper
   private
   def set_headline(path)
     case path
+      when root_path
+        if current_user
+          "Cart for #{current_user.name}"
+        else
+          'Your cart'
+        end
       when new_restaurant_path
         'Create restaurant'
       when restaurants_path
@@ -21,19 +27,26 @@ module ApplicationHelper
         'Add a Dish'
       when new_menu_path
         'Add menu'
-      when edit_menu_path
-        'Edit menu'
-      when menu_path
-        @menu.title
+      when carts_path
+        if current_user
+          "Cart for #{current_user.name}"
+        else
+          'Your cart'
+        end
+      #This will be a real problem
+
+      # when edit_menu_path(params[:id])
+      #   'Edit menu'
+      # when menu_path(params[:id])
+      #   @menu.title
       when new_user_registration_path
-        binding.pry
-        #This will be a real problem
-        'Sign up as Customer'
-      when user_registration_path
-        binding.pry
+        if params[:role] == 'owner'
+          'Sign up as Owner'
+        else
+          'Sign up as Customer'
+        end
       else
-        binding.pry
-        'Default headline'
+        ''
     end
   end
 

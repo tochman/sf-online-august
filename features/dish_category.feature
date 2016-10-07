@@ -12,4 +12,8 @@ Feature: As a restaurant owner
   Scenario: I categorize my dish
     Given I am on the "Create Dish" page
     Then I select "Starters" from "Category"
-    Then show me the page
+    And I click the "Submit" button
+    Then I should be on the "dishes" page
+    And I should see "Starters"
+
+

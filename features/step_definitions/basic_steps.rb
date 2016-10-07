@@ -90,6 +90,8 @@ def goto(page)
     user_registration_path
   when 'create restaurant'
     new_restaurant_path
+  when 'dishes'
+    dishes_path
   else
     root_path
   end

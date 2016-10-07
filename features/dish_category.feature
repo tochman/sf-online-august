@@ -3,14 +3,13 @@ Feature: As a restaurant owner
   I need to be able to categorize my dishes
 
   Background:
-    Given the following owners exist:
-      | name  |
-      | Edgar |
-    And "Edgar" has a restaurant
-    And "Edgar" has a menu "Fisk"
+    Given I am logged in as a restaurant owner
+    And I already have a restaurant
+    And I have the following menus:
+      | title |
+      | Lunch |
 
   Scenario: I categorize my dish
-    Given I am on the menu page for "Fisk"
-    And I am on the "Create Dish" page
+    Given I am on the "Create Dish" page
+    Then I select "Starters" from "Category"
     Then show me the page
-    Then I select "Starter" from "Category"

@@ -12,8 +12,15 @@ Feature: As a restaurant owner
   Scenario: I categorize my dish
     Given I am on the "Create Dish" page
     Then I select "Starters" from "Category"
+    And I fill in:
+      | element          | content              |
+      | Dish Name        | Pizza                |
+      | Dish description | Delicious pizza      |
+      | Price            | 70                   |
     And I click the "Submit" button
     Then I should be on the "dishes" page
+    And show me the page
     And I should see "Starters"
+
 
 

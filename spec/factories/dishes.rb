@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :dish do
     dish_name 'MyString'
+    category 'MyString'
     dish_desc 'MyText'
     dish_price 1
     dish_allergy 'MyText'

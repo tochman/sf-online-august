@@ -110,5 +110,3 @@ private
 def set_user(name)
   @user = User.find_by(name: name)
 end
-
-

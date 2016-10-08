@@ -8,7 +8,7 @@
 }
 .h1-top {
   width: 100%;
-  background: url('http://www.annasuss.com/h/restaurant_header.jpg');
+  background-image: image-url('restaurant_header.jpg');
   min-height: 150px;
   padding: 20px 0px 30px 0px;
   margin-bottom: 30px;
@@ -115,7 +115,7 @@ h1 {
 }
 
 .info.background_content{
-  background: url('http://www.annasuss.com/h/restaurant_header.jpg') no-repeat center center;
+  background: image-url('restaurant_header.jpg') no-repeat center center;
   background-size: cover;
   background-position: 70% 50%;
 }
@@ -180,6 +180,3 @@ p.desc-text{
     position: relative;
   }
 }
-
-
-

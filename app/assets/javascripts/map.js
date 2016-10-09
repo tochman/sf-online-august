@@ -15,28 +15,33 @@ $(document).ready(function () {
     performGeolocation();
 });
 function addMarkers() {
-  if(selection == ('All Restaurants' || undefined) ){
+  if(selection == ('All Restaurants')){
     map.removeMarkers();
     gon.all_restaurants.forEach(function (restaurant) {
-        map.addMarker({
-            lat: restaurant.latitude,
-            lng: restaurant.longitude
-        });
-      }
-    );
+      placeMarkers(restaurant);
+    });
   } else {
     map.removeMarkers();
         gon.all_restaurants.forEach(function (restaurant) {
           if(restaurant.category == selection){
-            map.addMarker({
-                lat: restaurant.latitude,
-                lng: restaurant.longitude
-            });
+            placeMarkers(restaurant);
           }
         });
     }
 }
-function performGeolocation() {
+function placeMarkers(restaurant) {
+  if(restaurant.latitude !== null) {
+    map.addMarker({
+        lat: restaurant.latitude,
+        lng: restaurant.longitude,
+        title: restaurant.name,
+        infoWindow: {
+            content: "<a href='/restaurants/" + restaurant.id + "'>" + restaurant.name + "</a>"
+        }
+      });
+    }
+}
+function performGeolocation(lat, lng) {
   var latitude;
   var longitude;
   var testing_env = $('#map').data().testEnv;
@@ -55,8 +60,8 @@ function performGeolocation() {
           }
       });
   } else {
-      latitude = 57.690123;
-      longitude = 11.950632;
+      latitude = lat || 57.690123;
+      longitude = lng || 11.950632;
       map.setCenter(latitude, longitude);
   }
 }

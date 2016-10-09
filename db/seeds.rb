@@ -44,13 +44,19 @@ end
 
 def add_dish(number, menu, restaurant)
   price = rand(20..60)
+  if price > 45
+    highlight = true
+  else
+    highlight = false
+  end
   prefix = restaurant.category
   Dish.create(name: "#{prefix} Dish #{number}",
               price: price,
               description: "A great #{restaurant.category} dish!",
               # category: Dish::CATEGORIES.sample
               menu_ids: menu.id,
-              restaurant_id: restaurant.id
+              restaurant: restaurant,
+              highlight: highlight
               )
 end
 

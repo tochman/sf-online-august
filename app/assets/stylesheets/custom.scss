@@ -180,3 +180,23 @@ p.desc-text{
     position: relative;
   }
 }
+
+.dish {
+  font-size: 120%;
+  margin-top: .2em;
+}
+.dish.h4 {
+  background: rgba(255,159,79,0.8);
+  padding: .2em;
+  text-align: center;
+  border-radius: .3em;
+}
+.order_button {
+  text-align: right;
+}
+.graybackground {
+  background-color: #eee;
+  border-radius: .5em;
+  padding: .6em;
+  margin-top: .6em;
+}

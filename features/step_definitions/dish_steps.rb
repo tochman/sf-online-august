@@ -46,3 +46,9 @@ Then(/^I should be on the edit dish page for "([^"]*)"$/) do |name|
   dish = Dish.find_by(name: name)
   expect(current_path).to eq edit_dish_path(dish)
 end
+
+Given(/^"([^"]*)" is a highlighted dish$/) do |dish_name|
+  dish = Dish.find_by(name: dish_name)
+  dish.highlight = true
+  dish.save
+end

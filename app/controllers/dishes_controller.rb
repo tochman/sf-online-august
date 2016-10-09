@@ -37,7 +37,14 @@ class DishesController < ApplicationController
   private
 
   def dish_params
-    params.require(:dish).permit(:name, :description, :price, :allergies, :ingredients, :calories, {menu_ids: []})
+    params.require(:dish).permit(:name,
+                                 :description,
+                                 :price,
+                                 :allergies,
+                                 :ingredients,
+                                 :calories,
+                                 {menu_ids: []},
+                                 :highlight)
   end
 
   def find_dish_from_params

@@ -11,6 +11,10 @@
   = form.text_field :calories, class: 'form-control'
   = form.label :ingredients, 'Ingredients'
   = form.text_field :ingredients, class: 'form-control'
+  %p.form-group
+    = form.label :highlight
+    = form.check_box :highlight
+
   %p#menus
     - if !@menus.nil?
       %h3 Add to Menu

@@ -48,3 +48,7 @@ Feature: As a restaurant Owner
     When I am on the "add menu" page
     Then I should be on the "index" page
     And I should see "You are not authorized to access this page"
+
+  Scenario: Adding a menu with no dishes created
+    Given I am on the "add menu" page
+    Then I should not see "add dishes"

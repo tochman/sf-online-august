@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_one :restaurant
-  has_many :shopping_carts
+  has_one :restaurant, dependent: :destroy
+  has_many :shopping_carts, dependent: :destroy
 
   PERMITTED_ROLES = %w(customer owner)
 

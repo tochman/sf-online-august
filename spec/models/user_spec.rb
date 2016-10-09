@@ -17,8 +17,8 @@ RSpec.describe User, type: :model do
   end
 
   describe 'associations' do
-    it { is_expected.to have_many :shopping_carts }
-    it { is_expected.to have_one :restaurant }
+    it { is_expected.to have_many(:shopping_carts).dependent(:destroy) }
+    it { is_expected.to have_one(:restaurant).dependent(:destroy) }
   end
 
   describe 'Factory' do

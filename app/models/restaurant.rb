@@ -3,8 +3,8 @@ class Restaurant < ApplicationRecord
   PERMITTED_CATEGORIES = %w(Other Pizza Sushi Italian Thai Fast\ Food BBQ French Traditional Vegan Seafood TexMex)
 
   belongs_to :user
-  has_many :menus
-  has_many :dishes
+  has_many :menus, dependent: :destroy
+  has_many :dishes, dependent: :destroy
   geocoded_by :full_address
   after_validation :geocode
   validates_presence_of :user, :name, :category, :street, :zipcode, :town
@@ -16,4 +16,3 @@ class Restaurant < ApplicationRecord
     [street, zipcode, town].join(', ')
   end
 end
-

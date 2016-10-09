@@ -28,3 +28,6 @@ vendor/bundle/
 
 #ignore the env file
 .env
+
+#ignore image uploads
+public/system/*

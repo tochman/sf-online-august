@@ -16,3 +16,10 @@ Feature: As a restaurant Owner
       | Password confirmation | password                                        |
     When I click the "Register" button
     Then there should be "1" restaurant owner in the system
+
+  Scenario: I cancel my account
+    Given I am logged in as a restaurant owner
+    When I am on the "edit profile" page
+    And I click the "Cancel my account" button
+    Then I should be on the "index" page
+    And I should see "Bye! Your account has been successfully cancelled"

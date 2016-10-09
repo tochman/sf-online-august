@@ -39,5 +39,11 @@ Scenario: Links to see as a restaurant owner
     | content                 |
     | Home                    |
     | Create a new restaurant |
-    | Show your restaurant    |
   And I should not see "Show cart"
+  And I should not see "Show your restaurant"
+
+Scenario: Links to see as a restaurant owner with a restaurant
+  Given I am logged in as a restaurant owner
+  And I already have a restaurant
+  And I am on the "index" page
+  Then I should see "Show your restaurant"

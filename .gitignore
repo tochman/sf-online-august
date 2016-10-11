@@ -25,9 +25,11 @@ coverage/
 #vendor files
 vendor/bundle/
 
-
 #ignore the env file
 .env
+
+#ignore Paperclip-generated test files
+/spec/test_files/*
 
 #ignore image uploads
 public/system/*

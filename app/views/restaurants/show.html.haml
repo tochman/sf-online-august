@@ -38,6 +38,9 @@
           .dish
             Price:
             = dish.price
+          - unless dish.image.nil?
+            .dish.image
+              = image_tag dish.image.url(:medium)
           .order_button
             - if can? :create, ShoppingCart
               = link_to 'Add to cart', dish_add_item_path(dish), method: :post, class: 'btn btn-success'

@@ -42,6 +42,21 @@
 * [Travis CI](https://travis-ci.org/) for continuous integration
 * [Coveralls](https://coveralls.io/) for test coverage
 
+## Gems of Note
+* Devise for User authentication
+* [Paperclip](https://github.com/thoughtbot/paperclip) for image uploading
+
+## Dependencies
+
+* ImageMagick:
+```
+brew install imagemagick
+```
+* GhostScript:
+```
+brew install gs
+```
+
 ## Contributors
 
 * [Susanna](https://github.com/thesuss)

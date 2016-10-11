@@ -44,7 +44,8 @@ class DishesController < ApplicationController
                                  :ingredients,
                                  :calories,
                                  {menu_ids: []},
-                                 :highlight)
+                                 :highlight,
+                                 :image)
   end
 
   def find_dish_from_params

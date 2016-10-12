@@ -11,8 +11,10 @@ json.category @restaurant.category
 json.menus(@restaurant.menus) do |menu|
   json.title menu.title
   json.dishes menu.dishes do |dish|
-    json.dish dish.name
+    json.name dish.name
+    json.description dish.description
+    json.price dish.price
+    json.category dish.category
+    json.id dish.id
   end
 end
-
-

@@ -53,7 +53,7 @@ def add_dish(number, menu, restaurant)
   Dish.create(name: "#{prefix} Dish #{number}",
               price: price,
               description: "A great #{restaurant.category} dish!",
-              # category: Dish::CATEGORIES.sample
+              category: Dish::PERMITTED_DISH_CATEGORIES.sample,
               menu_ids: menu.id,
               restaurant: restaurant,
               highlight: highlight

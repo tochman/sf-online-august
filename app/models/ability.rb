@@ -6,7 +6,10 @@ class Ability
 
     if user.owner?
       can :manage, Menu
-      can :manage, Dish
+      can :manage, Dish do |dish|
+        dish.restaurant.user == user
+      end
+      can :create, Dish
       can :manage, Restaurant, user_id: user.id
       cannot :create, ShoppingCart
       can :read, :all
@@ -14,7 +17,7 @@ class Ability
       cannot :manage, Menu
       cannot :manage, Dish
       cannot :manage, Restaurant
-      can :manage, ShoppingCart
+      can :create, ShoppingCart
       can :read, :all
     end
 

@@ -36,8 +36,8 @@ RSpec.describe 'Customer Abilities', type: :model do
   end
 
   context 'Cart' do
-    it 'can manage Menus' do
-      expect(subject).to be_able_to(:manage, ShoppingCart.new)
+    it 'can create ShoppingCarts' do
+      expect(subject).to be_able_to(:create, ShoppingCart.new)
     end
 
   end

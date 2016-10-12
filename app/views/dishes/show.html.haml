@@ -4,24 +4,22 @@
 .container
   .row
     .col-md-6
-      Dish description: #{@dish.description}
-      %br/
-      Dish price: #{@dish.price}
-      %br/
-      Allergens: #{@dish.allergies}
-      %br/
-      Ingredients: #{@dish.ingredients}
-      %br/
-      Calories: #{@dish.calories}
-      %br/
-      %br/
-      Menu(s):
+      %p
+        %strong Category: #{@dish.category}
+      %p Dish description: #{@dish.description}
+      %p Dish price: #{@dish.price}
+      %p Allergens: #{@dish.allergies}
+      %p Ingredients: #{@dish.ingredients}
+      %p Calories: #{@dish.calories}
+
+      %p Menu(s):
       - @dish.menus.each do |menu|
-        = menu.title
-      %br/
-      - if can? :create, ShoppingCart
+        %p
+          %strong= menu.title
+        %br/
+      - unless cannot? :create, ShoppingCart
         = link_to 'Add to cart', dish_add_item_path(@dish), method: :post, class: 'btn btn-success'
-      - if can? :manage, Dish
+      - if can? :manage, @dish
         = link_to 'Edit dish', edit_dish_path(@dish), class: 'btn btn-primary'
     .col-md-6
       - unless @dish.image_file_name.nil?

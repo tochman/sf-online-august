@@ -3,6 +3,8 @@
   = form.text_field :name, class: 'form-control'
   = form.label :description, 'Dish description'
   = form.text_area :description, class: 'form-control'
+  = form.label :category
+  = form.select :category, options_for_select(Dish::PERMITTED_DISH_CATEGORIES), class: 'form-control'
   = form.label :price, 'Price'
   = form.text_field :price, class: 'form-control'
   = form.label :allergies, 'Allergy Info'

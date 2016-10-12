@@ -27,9 +27,9 @@ Given(/^"([^"]*)" has the following dishes:$/) do |name, table|
   end
 end
 
-Given(/^I am on the edit dish page for "([^"]*)"$/) do |dish|
-  dish_id = Dish.find_by(name: dish)
-  visit edit_dish_path(dish_id)
+Given(/^I am on the edit dish page for "([^"]*)"$/) do |name|
+  dish = Dish.find_by(name: name)
+  visit edit_dish_path(dish)
 end
 
 Given(/^the following dishes exists$/) do |table|

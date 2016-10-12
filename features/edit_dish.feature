@@ -9,8 +9,8 @@ Feature: As a restaurant owner
     And "Anna" is logged in as restaurant owner
     And "Anna" has a restaurant
     And the following dishes exist
-      | name | description       | price |
-      | Kebab     | Delicious kebab | 9000       |
+      | name  | description     | price |
+      | Kebab | Delicious kebab | 9000  |
 
   Scenario: Navigating to edit page
     Given I am on the dish page for "Kebab"
@@ -28,8 +28,8 @@ Feature: As a restaurant owner
       | name  | email         | role  |
       | Bosse | bosse@food.se | owner |
     And I log in as "Bosse"
-    And I visit the restaurant page for "Anna"
-    And I click the link "Edit"
+    And I am on the edit dish page for "Kebab"
+    Then I should be on the "index" page
     Then I should see "You are not authorized to access this page."
 
   Scenario: Visitors can not edit dishes
@@ -39,11 +39,12 @@ Feature: As a restaurant owner
 
   Scenario: Customers can not edit dishes
     Given the following users exist
-      | name  | email         | role     |
-      | Emma  | emma@food.se  | customer |
+      | name | email        | role     |
+      | Emma | emma@food.se | customer |
     And I log in as "Emma"
-    And I am on the dish page for "Kebab"
-    Then I should not see "Submit"
+    And I am on the edit dish page for "Kebab"
+    Then I should be on the "index" page
+    Then I should see "You are not authorized to access this page."
 
   Scenario: I mess up the edit for dish
     Given I am on the dish page for "Kebab"

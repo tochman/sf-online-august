@@ -1,4 +1,3 @@
-@javascript
 Feature: As a Restaurant Owner
   in order to make my dishes enticing
   I want to be able to upload a photo of a dish.

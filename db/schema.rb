@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161009095311) do
+ActiveRecord::Schema.define(version: 20161013135832) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,11 +26,11 @@ ActiveRecord::Schema.define(version: 20161009095311) do
     t.datetime "updated_at",                         null: false
     t.integer  "restaurant_id"
     t.boolean  "highlight",          default: false
+    t.string   "category"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.string   "category"
     t.index ["restaurant_id"], name: "index_dishes_on_restaurant_id", using: :btree
   end
 
@@ -101,6 +101,9 @@ ActiveRecord::Schema.define(version: 20161009095311) do
     t.text     "address",                                     null: false
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false
+    t.string   "provider",               default: "email",    null: false
+    t.string   "uid",                    default: "",         null: false
+    t.text     "tokens"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
